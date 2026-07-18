@@ -24,7 +24,7 @@ A modern and responsive Kanban Task Management Board built using **HTML, CSS, an
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
+
 ```
 
 ## Getting Started
@@ -39,25 +39,10 @@ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
 
 3. Open `index.html` in your browser.
 
-## Screenshots
 
-Add screenshots of your project here.
 
-## Future Improvements
-
-* Edit Tasks
-* Due Dates
-* Task Priorities
-* Search & Filter
-* Dark Mode
-* Multiple Boards
-* Cloud Database Integration
-* User Authentication
 
 ## Author
 
 Developed by **Darshan Patidar**
 
-## License
-
-This project is licensed under the MIT License.
