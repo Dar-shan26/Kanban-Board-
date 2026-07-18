@@ -9,165 +9,283 @@ body{
     width: 100%;
     height: 100%;
 }
+
 html{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 :root{
-    --bg-color : #000000;
-    --bg-btn-color : #1a1a1a;
-    --bg-task-color : #2a2a2a;
-    --primary-text-color : #f4f4f4;
-    --delete-color : #ff4d4d;
+    --bg-color:#000000;
+    --bg-btn-color:#1a1a1a;
+    --bg-task-color:#2a2a2a;
+    --primary-text-color:#f4f4f4;
+    --delete-color:#ff4d4d;
 
-    /* Padding */
-    --nav-padding : 15px 30px;
-    --section-padding : 15px 30px;
-    --padding-s : 5px;
-    --padding-m : 10px;
-    --padding-l : 25px;
-    --padding-xl : 20px;
-    --padding-xxl :  30px;
+    --nav-padding:15px 30px;
+    --section-padding:15px 30px;
+    --padding-s:5px;
+    --padding-m:10px;
+    --padding-l:25px;
+    --padding-xl:20px;
+    --padding-xxl:30px;
 
-    /* border radius variable */
-    --border-radius-s : 5px;
-    --border-radius-m : 10px;
-    --border-radius-l : 25px;
-    --border-radius-xl : 20px;
-    --border-radius-xxl :  30px;
+    --border-radius-s:5px;
+    --border-radius-m:10px;
+    --border-radius-l:25px;
+    --border-radius-xl:20px;
+    --border-radius-xxl:30px;
 }
 
 body{
     background-color:var(--bg-color);
-    color: var(--primary-text-color);
+    color:var(--primary-text-color);
 }
 
 main{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
 nav{
-    padding: var(--nav-padding);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding:var(--nav-padding);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 nav button{
-    background-color: var(--bg-btn-color);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-m) var(--padding-l);
-    cursor: pointer;
+    background-color:var(--bg-btn-color);
+    border:none;
+    outline:none;
+    color:var(--primary-text-color);
+    padding:var(--padding-m) var(--padding-l);
+    cursor:pointer;
     border-radius:var(--border-radius-m);
+    transition:.3s;
+}
+
+nav button:hover{
+    opacity:.9;
 }
 
 section{
-    padding: var(--section-padding);
-    display: flex;
-      flex-grow: 1;
-    justify-content: space-between;
-    gap: var(--padding-xl);
+    flex:1;
+    padding:var(--section-padding);
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
 }
+
 section .task-column{
-    background-color: var(--bg-btn-color);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-m);
-    padding: var(--border-radius-m);
-    border-radius: var(--border-radius-m);
-    transition: all o.5s cubic-bezier(0.19, 1, 0.22, 1);
+    background-color:var(--bg-btn-color);
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:15px;
+    border-radius:var(--border-radius-m);
+    min-height:500px;
+    transition:all .5s cubic-bezier(0.19,1,0.22,1);
 }
 
 section .task-column.hover-over{
-    border:  2px dashed var(--primary-text-color);
-    scale: 1.05;
+    border:2px dashed var(--primary-text-color);
+    transform:scale(1.02);
 }
 
 section .task-column .heading{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 section .task-column .task{
-    background-color: var(--bg-task-color);
-    padding: var(--border-radius-m);
-    border-radius: var(--border-radius-m);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-s);
-    cursor: grab;
+    background-color:var(--bg-task-color);
+    padding:15px;
+    border-radius:var(--border-radius-m);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    cursor:grab;
+    word-break:break-word;
+}
 
+section .task-column .task:active{
+    cursor:grabbing;
+}
+
+section .task-column .task h2{
+    font-size:1.2rem;
+}
+
+section .task-column .task p{
+    font-size:.95rem;
+    line-height:1.5;
 }
 
 section .task-column .task button{
-    align-self: flex-end;
-    cursor: pointer;
-    padding: var(--padding-s) var(--padding-m);
-    border: none;
-    outline: none;
+    align-self:flex-end;
+    cursor:pointer;
+    padding:8px 15px;
+    border:none;
+    outline:none;
     background-color:var(--delete-color);
-    border-radius: var(--border-radius-s);
     color:#fff;
+    border-radius:var(--border-radius-s);
 }
 
 .model{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
 }
 
 .model.active{
-    display: flex;
+    display:flex;
 }
 
 .model .bg{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(61,61,61,0.404);
-    backdrop-filter: blur(5px);
+    position:absolute;
+    inset:0;
+    background:rgba(61,61,61,.4);
+    backdrop-filter:blur(5px);
 }
+
 .model .center{
-    background-color: var(--bg-btn-color);
-    padding: var(--padding-xxl);
-    border-radius: var(--border-radius-m);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-m);
+    width:450px;
+    max-width:90%;
+    background:var(--bg-btn-color);
+    padding:30px;
+    border-radius:var(--border-radius-m);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
     z-index:10;
 }
 
-.model .center input, .model .center textarea{
-    background-color: var(--bg-task-color);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-m);
-    border-radius: var(--border-radius-s);
+.model .center input,
+.model .center textarea{
+    width:100%;
+    background:var(--bg-task-color);
+    border:none;
+    outline:none;
+    color:var(--primary-text-color);
+    padding:12px;
+    border-radius:var(--border-radius-s);
+    resize:none;
+}
+
+.model .center textarea{
+    min-height:120px;
 }
 
 .model .center button{
-    background-color: var(--bg-task-color);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-m) var(--padding-l);
-    cursor: pointer;
-    border-radius: var(--border-radius-m);
-    width: fit-content;
+    background:var(--bg-task-color);
+    border:none;
+    outline:none;
+    color:var(--primary-text-color);
+    padding:10px 25px;
+    cursor:pointer;
+    border-radius:var(--border-radius-m);
     align-self:center;
+}
+
+@media (max-width:992px){
+
+    :root{
+        --nav-padding:15px 20px;
+        --section-padding:20px;
+    }
+
+    section{
+        gap:15px;
+    }
+
+    section .task-column{
+        min-height:400px;
+    }
+}
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    nav h1{
+        text-align:center;
+        font-size:2rem;
+    }
+
+    nav button{
+        width:100%;
+    }
+
+    section{
+        flex-direction:column;
+    }
+
+    section .task-column{
+        width:100%;
+        min-height:250px;
+    }
+
+    .model .center{
+        width:92%;
+        padding:20px;
+    }
+}
+
+@media (max-width:480px){
+
+    :root{
+        --nav-padding:12px;
+        --section-padding:12px;
+    }
+
+    nav h1{
+        font-size:1.6rem;
+    }
+
+    section .task-column{
+        padding:12px;
+    }
+
+    section .task-column .heading h2{
+        font-size:1.1rem;
+    }
+
+    section .task-column .task{
+        padding:12px;
+    }
+
+    section .task-column .task h2{
+        font-size:1rem;
+    }
+
+    section .task-column .task p{
+        font-size:.9rem;
+    }
+
+    section .task-column .task button{
+        width:100%;
+    }
+
+    .model .center{
+        width:95%;
+        padding:15px;
+    }
+
+    .model .center button{
+        width:100%;
+    }
 }
